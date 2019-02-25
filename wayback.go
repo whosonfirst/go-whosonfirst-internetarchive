@@ -28,7 +28,7 @@ type Snapshots struct {
 type Snapshot struct {
 	Available bool   `json:"available"`
 	URL       string `json:"url"`
-	Timestamp string `json:"timestamp"`
+	Timestamp string `json:"timestamp"` // 20060101064348 <-- internet archive format not Go time format
 	Status    string `json:"status"`
 }
 
@@ -132,6 +132,33 @@ func (m *WaybackMachine) HasArchive(ctx context.Context, url string) (bool, erro
 	c := arch.Snapshots.Closest
 
 	if c != nil {
+		return false, nil
+	}
+
+	return true, nil
+}
+
+func (m *WaybackMachine) HasArchiveNewerThan(ctx context.Context, url string, t time.Time) (bool, error) {
+
+	arch, err := m.Archives(ctx, url)
+
+	if err != nil {
+		return false, err
+	}
+
+	c := arch.Snapshots.Closest
+
+	if c != nil {
+		return false, nil
+	}
+
+	created, err := time.Parse("20060102150405", c.Timestamp)
+
+	if err != nil {
+		return false, err
+	}
+
+	if created.Before(t) {
 		return false, nil
 	}
 
