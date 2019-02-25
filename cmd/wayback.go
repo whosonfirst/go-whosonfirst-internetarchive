@@ -49,6 +49,9 @@ func main() {
 		id := f.Id()
 		url := fmt.Sprintf(*template, id)
 
+		// TO DO: get wof:lastmodified and use it to call wb.HasArchiveNewerThan(ctx, url, t)
+		// (20190225/thisisaaronland)
+		
 		do_archive, err := wb.HasArchive(ctx, url)
 
 		if err != nil {
