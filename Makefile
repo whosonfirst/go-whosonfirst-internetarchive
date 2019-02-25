@@ -28,6 +28,7 @@ vendor-deps: rmdeps deps
 
 fmt:
 	go fmt cmd/*.go
+	go fmt *.go
 
 bin: 	self
 	GOPATH=$(GOPATH) go build -o bin/wayback cmd/wayback.go
