@@ -42,13 +42,18 @@ func main() {
 		worker = w
 	}
 	
-	opts, err := wayback.DefaultWaybackMachineOptions()
+	wb_opts, err := wayback.DefaultWaybackMachineOptions()
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	wb, err := wayback.NewWaybackMachine(opts)
+	wb_rate := time.Second / 1
+	wb_throttle := time.Tick(wb_rate)
+
+	wb_opts.Throttle = wb_throttle
+	
+	wb, err := wayback.NewWaybackMachine(wb_opts)
 
 	if err != nil {
 		log.Fatal(err)
@@ -100,8 +105,14 @@ func main() {
 			return nil
 		}
 
+		err = wb.Save(ctx, url)
+
+		if err != nil {
+			return err
+		}
+		
 		log.Printf("Saved '%s'\n", url)
-		return wb.Save(ctx, url)
+		return nil
 	}
 
 	i, err := index.NewIndexer(*mode, cb)

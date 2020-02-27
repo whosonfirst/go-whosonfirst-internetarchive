@@ -1,11 +1,9 @@
 package wayback
 
-// this should go in a standalone package somewhere...
-// (20190225/thisisaaronland)
-
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	_ "log"
@@ -82,7 +80,11 @@ func (m *WaybackMachine) Save(ctx context.Context, url string) error {
 
 	defer rsp.Body.Close()
 
-	return err
+	if rsp.StatusCode != 200 {
+		return errors.New(rsp.Status)
+	}
+
+	return nil
 }
 
 func (m *WaybackMachine) Archives(ctx context.Context, url string) (*Archive, error) {

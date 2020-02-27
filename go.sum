@@ -1,6 +1,8 @@
 github.com/MichaelTJones/walk v0.0.0-20161122175330-4748e29d5718/go.mod h1:VVwKsx9Dc8rNG55BWqogoJzGubjKnRoXdUvpGbWqeCc=
 github.com/aaronland/go-internetarchive v0.0.0-20200227200030-e57f12e02efb h1:Qlhy45DGWb+50AWiIQbcSkjlyTeS2iagRIA8qWABqwo=
 github.com/aaronland/go-internetarchive v0.0.0-20200227200030-e57f12e02efb/go.mod h1:g0ov+UKlvsGW6M3i79F6HvvksMP+C0t8Z3CP3FxnY8M=
+github.com/aaronland/go-internetarchive v0.0.1 h1:tOl/tOnRZL5lTwdSuyRjG3aR1O0GAU6/YmkM0khIVgI=
+github.com/aaronland/go-internetarchive v0.0.1/go.mod h1:g0ov+UKlvsGW6M3i79F6HvvksMP+C0t8Z3CP3FxnY8M=
 github.com/alcortesm/tgz v0.0.0-20161220082320-9c5fe88206d7/go.mod h1:6zEj6s6u/ghQa61ZWa/C2Aw3RkjiTBOix7dkqa1VLIs=
 github.com/anmitsu/go-shlex v0.0.0-20161002113705-648efa622239/go.mod h1:2FmKhYUyUczH0OGQWaF5ceTx0UBShxjsH6f8oGKYe2c=
 github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5/go.mod h1:wHh0iHkYZB8zMSxRWpUBQtwG5a7fFgvEO+odwuTv2gs=

@@ -1,4 +1,4 @@
-# github.com/aaronland/go-internetarchive v0.0.0-20200227200030-e57f12e02efb
+# github.com/aaronland/go-internetarchive v0.0.1
 github.com/aaronland/go-internetarchive/wayback
 # github.com/hashicorp/errwrap v0.0.0-20141028054710-7554cd9344ce
 github.com/hashicorp/errwrap
